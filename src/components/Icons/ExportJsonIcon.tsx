@@ -1,10 +1,4 @@
-
-
-const ExportJsonIcon = ({
-  className,
-}: {
-  className?: string;
-}) => (
+const ExportJsonIcon = ({ className }: { className?: string }) => (
   <svg
     className={className}
     fill='#000000'

@@ -1,4 +1,3 @@
-
 import type { Country } from '../../../../hooks/useCountries.tsx';
 import { Handle, Position } from '@xyflow/react';
 import type { NodeProps } from '@xyflow/react';

@@ -1,5 +1,3 @@
-
-
 const StarIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox='0 0 24 24'>
     <g>

@@ -42,6 +42,6 @@ const CountriesList = ({ countries }: CountriesListProps) => {
       })}
     </div>
   );
-}
+};
 
 export default CountriesList;

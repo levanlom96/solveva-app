@@ -1,10 +1,4 @@
-
-
-const AirportIcon = ({
-  className,
-}: {
-  className?: string;
-}) => (
+const AirportIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox='0 0 24 24'>
     <g>
       <path d='M4,6v12c0,2.2,1.8,4,4,4h7c2.2,0,4-1.8,4-4V6c0-2.2-1.8-4-4-4H8C5.8,2,4,3.8,4,6z M6,6c0-1.1,0.9-2,2-2h7c1.1,0,2,0.9,2,2   v12c0,1.1-0.9,2-2,2H8c-1.1,0-2-0.9-2-2V6z' />

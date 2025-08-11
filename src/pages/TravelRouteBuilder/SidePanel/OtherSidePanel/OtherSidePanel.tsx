@@ -94,6 +94,6 @@ const OtherSidePanel = ({ hidden }: OtherSidePanelProps) => {
       />
     </div>
   );
-}
+};
 
 export default OtherSidePanel;

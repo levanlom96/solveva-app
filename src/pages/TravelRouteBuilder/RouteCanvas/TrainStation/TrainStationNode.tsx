@@ -1,5 +1,3 @@
-
-
 import { Handle, Position } from '@xyflow/react';
 import type { NodeProps } from '@xyflow/react';
 import { TrainIcon } from '../../../../components/Icons';
@@ -16,9 +14,7 @@ export type TrainStationNodeData = {
 
 export type TrainStationNodeProps = NodeProps;
 
-const TrainStationNode = ({
-  data,
-}: TrainStationNodeProps) => {
+const TrainStationNode = ({ data }: TrainStationNodeProps) => {
   const nodeData = data as TrainStationNodeData;
   const { stationName, trainType, vibeCheck } = nodeData.nodeUniqueData;
 

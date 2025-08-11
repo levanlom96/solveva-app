@@ -37,6 +37,6 @@ const SidePanel = () => {
       <OtherSidePanel hidden={!otherPanelOpen} />
     </div>
   );
-}
+};
 
 export default SidePanel;

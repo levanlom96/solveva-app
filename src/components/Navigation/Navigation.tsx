@@ -38,7 +38,12 @@ const Navigation = () => {
               // importJson does sanitize but we are not checking data structure anywhere.
               // Ideally we should use something like https://zod.dev/json-schema - validation.
 
-              if ((data as any)?.nodes?.length) {
+              const typedData = data as Record<string, unknown>;
+              if (
+                typedData?.nodes &&
+                Array.isArray(typedData.nodes) &&
+                typedData.nodes.length > 0
+              ) {
                 dispatch({
                   type: 'SAVE_IMPORTED_TRAVEL_ROUTE',
                   payload: data as {
@@ -69,6 +74,6 @@ const Navigation = () => {
       </div>
     </nav>
   );
-}
+};
 
 export default Navigation;

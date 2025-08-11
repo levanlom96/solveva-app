@@ -83,6 +83,6 @@ const CountriesLoading = () => {
       </svg>
     </div>
   );
-}
+};
 
 export default CountriesLoading;

@@ -1,5 +1,3 @@
-
-
 import { Handle, Position } from '@xyflow/react';
 import type { NodeProps } from '@xyflow/react';
 import { BeachIcon } from '../../../../components/Icons';

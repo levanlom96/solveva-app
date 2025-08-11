@@ -9,6 +9,6 @@ const NotFound = () => {
       </Link>
     </div>
   );
-}
+};
 
 export default NotFound;

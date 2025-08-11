@@ -41,6 +41,6 @@ const OtherChoice = ({ icon, label, nodeData }: OtherChoiceProps) => {
       <span className='other-choice__label'>{label}</span>
     </div>
   );
-}
+};
 
 export default OtherChoice;

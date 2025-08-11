@@ -18,6 +18,6 @@ const TravelRouteBuilder = () => {
       <ToastContainer />
     </div>
   );
-}
+};
 
 export default TravelRouteBuilder;
