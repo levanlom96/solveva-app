@@ -2,7 +2,8 @@ import './OtherChoice.scss';
 import React from 'react';
 import type { NodeTypeKey } from '../../../RouteCanvas/RouteCanvas.tsx';
 
-type NodeData = {
+export type NodeData = {
+  id?: string;
   nodeType: NodeTypeKey;
   data: unknown;
 };

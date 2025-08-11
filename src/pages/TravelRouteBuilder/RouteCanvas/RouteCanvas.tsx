@@ -22,6 +22,7 @@ import CountryNode from './CountryNode/CountryNode.tsx';
 
 import './RouteCanvas.scss';
 import { useAppState } from '../../../hooks/useAppState.tsx';
+import type { NodeData } from '../SidePanel/OtherSidePanel/OtherChoice/OtherChoice.tsx';
 
 const nodeTypes: NodeTypes = {
   countryNode: CountryNode,
@@ -113,8 +114,8 @@ export default function RouteCanvas() {
   const onDrop = (e: React.DragEvent) => {
     e.preventDefault();
     const data = e.dataTransfer.getData('application/json');
-    const parsedData: { country: Country } = JSON.parse(data);
-    const id = parsedData.country.cca2;
+    const parsedData: NodeData = JSON.parse(data);
+    const id = parsedData.data.id ? parsedData.data.id : crypto.randomUUID();
 
     try {
       const node = new GraphNode(id);
@@ -126,13 +127,15 @@ export default function RouteCanvas() {
         y: e.clientY,
       });
 
+      console.log('parsedData: ', parsedData);
+
       setNodes((prevState) => [
         ...prevState,
         {
           id: id,
           position,
-          data: parsedData,
-          type: 'countryNode',
+          data: parsedData.data,
+          type: parsedData.data.nodeType,
         },
       ]);
     } catch (e) {

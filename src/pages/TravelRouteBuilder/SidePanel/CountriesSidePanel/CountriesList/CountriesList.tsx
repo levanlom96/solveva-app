@@ -11,8 +11,10 @@ function CountriesList({ countries }: CountriesListProps) {
     country: Country
   ) => {
     const payload = {
-      country: {
-        ...country,
+      data: {
+        id: country.cca2,
+        nodeType: 'countryNode',
+        country: country,
       },
     };
 
