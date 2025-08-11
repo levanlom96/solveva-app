@@ -2,10 +2,12 @@ import './SidePanel.scss';
 import CountriesSidePanel from './CountriesSidePanel/CountriesSidePanel.tsx';
 import { useState } from 'react';
 import { useCountries } from '../../../hooks/useCountries.tsx';
+import OtherSidePanel from './OtherSidePanel/OtherSidePanel.tsx';
 
 function SidePanel() {
   const { countries, loading, error } = useCountries();
-  const [otherPanelOpen, setOtherPanelOpen] = useState(false);
+
+  const [otherPanelOpen, setOtherPanelOpen] = useState(true);
 
   return (
     <div className='side-panel'>
@@ -27,12 +29,7 @@ function SidePanel() {
         error={error}
         hidden={otherPanelOpen}
       />
-      <CountriesSidePanel
-        countries={countries}
-        loading={loading}
-        error={error}
-        hidden={otherPanelOpen}
-      />
+      <OtherSidePanel hidden={!otherPanelOpen} />
     </div>
   );
 }

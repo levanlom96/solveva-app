@@ -1,3 +1,16 @@
-.countries-side-panel {
+.other-side-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
 
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s ease-in-out;
+  border-right: 2px solid rgba(68, 68, 68, 0.16);
+
+  &--hidden {
+    pointer-events: none;
+    opacity: 0;
+  }
 }

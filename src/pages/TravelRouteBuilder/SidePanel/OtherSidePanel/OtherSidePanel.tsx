@@ -1,7 +1,15 @@
 import './OtherSidePanel.scss';
 
-function OtherSidePanel() {
-  return <div className='countries-side-panel'></div>;
+export interface OtherSidePanelProps {
+  hidden: boolean;
+}
+
+function OtherSidePanel({ hidden }: OtherSidePanelProps) {
+  return (
+    <div
+      className={`other-side-panel ${hidden ? 'other-side-panel--hidden' : ''}`}
+    ></div>
+  );
 }
 
 export default OtherSidePanel;
