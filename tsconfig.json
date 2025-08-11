@@ -2,7 +2,7 @@
   "compilerOptions": {
     "composite": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"], // ✅ add this
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
