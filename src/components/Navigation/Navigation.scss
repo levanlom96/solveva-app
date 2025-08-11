@@ -1,0 +1,51 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 200px;
+
+  box-sizing: border-box;
+  padding: 24px;
+  position: fixed;
+  z-index: 1;
+  background: #fff;
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
+
+  &__buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+
+    &--hidden {
+      pointer-events: none;
+      opacity: 0;
+    }
+  }
+
+  &__button {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: sans-serif;
+    font-size: 14px;
+    gap: 5px;
+
+    padding: 8px;
+    border: 1px solid hsla(25, 95%, 53%, 0.34);
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: hsla(0, 0%, 85%, 0.31);
+    }
+  }
+
+  &__export-icon {
+    width: 18px;
+  }
+}

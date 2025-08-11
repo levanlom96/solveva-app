@@ -1,0 +1,37 @@
+.side-panel {
+  width: 320px;
+  height: 100%;
+  position: relative;
+
+  &__countries-button, &__other-button {
+    all: unset;
+    position: absolute;
+    transform: rotate(90deg);
+    z-index: 1;
+
+    font-family: sans-serif;
+    background: hsla(50, 3%, 59%, 0.48);
+    border: 2px solid rgba(68, 68, 68, 0.16);
+    padding: 4px;
+    font-size: 14px;
+    border-bottom: none;
+
+    cursor: pointer;
+
+    &.active, &:hover {
+      color: hsl(25, 95%, 53%);
+      background-color: white;
+      border-bottom: 2px solid white;
+    }
+  }
+
+  &__countries-button {
+    right: -47px;
+    top: 129px;
+  }
+
+  &__other-button {
+    right: -34px;
+    top: 200px;
+  }
+}

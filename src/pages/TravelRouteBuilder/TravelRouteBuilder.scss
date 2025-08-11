@@ -1,0 +1,18 @@
+.route-builder {
+  box-sizing: border-box;
+  display: flex;
+
+  // Sizes of header and footer.
+  padding-top: 77px;
+  padding-bottom: 43px;
+
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.app-panel {
+  box-sizing: border-box;
+  width: calc(100% - 320px);
+  height: 100%;
+}
