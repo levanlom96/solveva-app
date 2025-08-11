@@ -1,0 +1,32 @@
+.other-choice {
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+  padding: 12px;
+  gap: 12px;
+  width: 100%;
+  height: 60px;
+
+  transition: background-color 0.4s ease-in-out;
+
+  &:hover {
+    background-color: rgba(32, 178, 170, 0.35);
+  }
+
+  &__icon {
+    background-color: white;
+    border: 1px solid lightseagreen;
+    padding: 12px;
+    width: 24px;
+  }
+
+  &__label {
+    cursor: default;
+
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
