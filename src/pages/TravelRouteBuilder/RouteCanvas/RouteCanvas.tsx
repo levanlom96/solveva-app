@@ -7,12 +7,19 @@ import {
   addEdge,
   Background,
   Controls,
-  NodeTypes,
   useNodesState,
   useEdgesState,
   useReactFlow,
 } from '@xyflow/react';
-import type { Country } from '../../../hooks/useCountries.tsx';
+import type {
+  NodeTypes,
+  NodeChange,
+  EdgeChange,
+  Connection,
+  Node,
+  Edge,
+} from '@xyflow/react';
+
 import { TravelGraph } from '../../../graph-management/travel-graph.ts';
 import { EdgeChecker } from '../../../graph-management/edge-checker.ts';
 import { GraphNode } from '../../../graph-management/nodes/base-node.ts';
@@ -52,19 +59,9 @@ export type NodeTypeKey =
   | 'beachNode'
   | 'trainNode';
 
-export interface ReactFlowNode {
-  id: string;
-  position: { x: 521; y: 222 };
-  data: { country: Country };
-  type: NodeTypeKey;
-}
+export type ReactFlowNode = Node<never, NodeTypeKey>;
 
-export interface ReactFlowEdge {
-  animated: true;
-  id: string;
-  source: string;
-  target: string;
-}
+export type ReactFlowEdge = Edge;
 
 export default function RouteCanvas() {
   const { state, dispatch } = useAppState();
@@ -73,27 +70,29 @@ export default function RouteCanvas() {
     new TravelGraph(new EdgeChecker(forbiddenPaths))
   );
 
-  const [nodes, setNodes] = useNodesState([]);
-  const [edges, setEdges] = useEdgesState([]);
+  const [nodes, setNodes] = useNodesState<ReactFlowNode>([]);
+  const [edges, setEdges] = useEdgesState<ReactFlowEdge>([]);
 
   const { screenToFlowPosition } = useReactFlow();
 
   const onNodesChange = useCallback(
-    (changes) => {
-      setNodes((prevState) => applyNodeChanges(changes, prevState));
+    (changes: NodeChange[]) => {
+      setNodes(
+        (prevState) => applyNodeChanges(changes, prevState) as ReactFlowNode[]
+      );
     },
     [setNodes]
   );
 
   const onEdgesChange = useCallback(
-    (changes) => {
+    (changes: EdgeChange[]) => {
       setEdges((prevState) => applyEdgeChanges(changes, prevState));
     },
     [setEdges]
   );
 
   const onConnect = useCallback(
-    (params) => {
+    (params: Connection) => {
       try {
         const sourceNode = travelGraph.getNode(params.source);
         const targetNode = travelGraph.getNode(params.target);
@@ -117,7 +116,7 @@ export default function RouteCanvas() {
           addEdge({ ...params, animated: true }, prevState)
         );
       } catch (e) {
-        toast.error(e.message, { position: 'bottom-center' });
+        toast.error((e as Error).message, { position: 'bottom-center' });
       }
     },
     [setEdges, travelGraph]
@@ -147,10 +146,10 @@ export default function RouteCanvas() {
           position,
           data: { ...parsedData },
           type: parsedData.nodeType,
-        },
+        } as ReactFlowNode,
       ]);
     } catch (e) {
-      toast.error(e.message, { position: 'bottom-center' });
+      toast.error((e as Error).message, { position: 'bottom-center' });
     }
   };
 
@@ -189,7 +188,7 @@ export default function RouteCanvas() {
         setEdges(state.importedTravelRoute.edges);
         setTravelGraph(newTravelGraph);
       } catch (e) {
-        toast.error(e.message, { position: 'bottom-center' });
+        toast.error((e as Error).message, { position: 'bottom-center' });
       }
     }
   }, [setEdges, setNodes, state.importedTravelRoute]);

@@ -4,7 +4,7 @@ import { GlobalIcon, MagnifyingGlassIcon } from '../../../../components/Icons';
 import CountriesLoading from './CountriesLoading/CountriesLoading.tsx';
 import ErrorMessage from '../../../../components/ErrorMessage/ErrorMessage.tsx';
 import CountriesList from './CountriesList/CountriesList.tsx';
-import { Country } from '../../../../hooks/useCountries.tsx';
+import type { Country } from '../../../../hooks/useCountries.tsx';
 import { useDebouncedValue } from '../../../../hooks/useDebounceValue.tsx';
 import { normalize } from '../../../../utils/search.utils.ts';
 

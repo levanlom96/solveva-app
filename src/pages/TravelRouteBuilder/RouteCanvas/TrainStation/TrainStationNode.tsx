@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Handle, NodeProps } from '@xyflow/react';
+import { Handle, Position } from '@xyflow/react';
+import type { NodeProps } from '@xyflow/react';
 import { TrainIcon } from '../../../../components/Icons';
 
 import './TrainStationNode.scss';
 
-export type TrainStationNodeProps = NodeProps & {
+export type TrainStationNodeData = {
   nodeUniqueData: {
     stationName: string;
     trainType: string;
@@ -13,10 +14,13 @@ export type TrainStationNodeProps = NodeProps & {
   };
 };
 
+export type TrainStationNodeProps = NodeProps;
+
 const TrainStationNode: React.FC<TrainStationNodeProps> = ({
   data,
 }: TrainStationNodeProps) => {
-  const { stationName, trainType, vibeCheck } = data.nodeUniqueData;
+  const nodeData = data as TrainStationNodeData;
+  const { stationName, trainType, vibeCheck } = nodeData.nodeUniqueData;
 
   return (
     <div
@@ -52,8 +56,8 @@ const TrainStationNode: React.FC<TrainStationNodeProps> = ({
         <span className='train-station-node__details-value'>{vibeCheck}</span>
       </div>
 
-      <Handle type='source' position='bottom' />
-      <Handle type='target' position='top' />
+      <Handle type='source' position={Position.Bottom} />
+      <Handle type='target' position={Position.Top} />
     </div>
   );
 };

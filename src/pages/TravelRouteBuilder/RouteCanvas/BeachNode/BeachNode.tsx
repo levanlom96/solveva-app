@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Handle, NodeProps } from '@xyflow/react';
+import { Handle, Position } from '@xyflow/react';
+import type { NodeProps } from '@xyflow/react';
 import { BeachIcon } from '../../../../components/Icons';
 
 import './BeachNode.scss';
 
-export type BeachNodeProps = NodeProps & {
+export type BeachNodeData = {
   nodeUniqueData: {
     beachName: string;
     beachType: string;
@@ -13,8 +14,11 @@ export type BeachNodeProps = NodeProps & {
   };
 };
 
+export type BeachNodeProps = NodeProps;
+
 const BeachNode: React.FC<BeachNodeProps> = ({ data }: BeachNodeProps) => {
-  const { beachName, beachType, waterDepth } = data.nodeUniqueData;
+  const nodeData = data as BeachNodeData;
+  const { beachName, beachType, waterDepth } = nodeData.nodeUniqueData;
 
   return (
     <div className='beach-node' role='group' aria-label={`${beachName} beach`}>
@@ -46,8 +50,8 @@ const BeachNode: React.FC<BeachNodeProps> = ({ data }: BeachNodeProps) => {
         <span className='beach-node__details-value'>{waterDepth}</span>
       </div>
 
-      <Handle type='source' position='bottom' />
-      <Handle type='target' position='top' />
+      <Handle type='source' position={Position.Bottom} />
+      <Handle type='target' position={Position.Top} />
     </div>
   );
 };

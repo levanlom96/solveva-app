@@ -1,8 +1,5 @@
 {
-  "compilerOptions": {
-    "composite": true
-  },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }

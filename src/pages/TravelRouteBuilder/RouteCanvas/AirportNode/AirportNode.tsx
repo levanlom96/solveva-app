@@ -1,21 +1,25 @@
 import React from 'react';
 
-import { Handle, NodeProps } from '@xyflow/react';
+import { Handle, Position } from '@xyflow/react';
+import type { NodeProps } from '@xyflow/react';
 import { AirportIcon } from '../../../../components/Icons';
 
 import './AirportNode.scss';
 
-export type AirportNodeProps = NodeProps & {
+export type AirportNodeData = {
   nodeUniqueData: {
     airportName: string;
     flightTime: string;
   };
 };
 
+export type AirportNodeProps = NodeProps;
+
 const AirportNode: React.FC<AirportNodeProps> = ({
   data,
 }: AirportNodeProps) => {
-  const { airportName, flightTime } = data.nodeUniqueData;
+  const nodeData = data as AirportNodeData;
+  const { airportName, flightTime } = nodeData.nodeUniqueData;
 
   return (
     <div
@@ -42,8 +46,8 @@ const AirportNode: React.FC<AirportNodeProps> = ({
         <span className='airport-node__flight-value'>{flightTime}</span>
       </div>
 
-      <Handle type='source' position='bottom' />
-      <Handle type='target' position='top' />
+      <Handle type='source' position={Position.Bottom} />
+      <Handle type='target' position={Position.Top} />
     </div>
   );
 };

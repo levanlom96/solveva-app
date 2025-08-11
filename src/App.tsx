@@ -1,4 +1,4 @@
-import { JSX } from 'react';
+import type { JSX } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './store/app.provider.tsx';
 import Navigation from './components/Navigation/Navigation.tsx';

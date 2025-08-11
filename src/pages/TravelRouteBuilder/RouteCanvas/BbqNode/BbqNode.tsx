@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Handle, NodeProps } from '@xyflow/react';
+import { Handle, Position } from '@xyflow/react';
+import type { NodeProps } from '@xyflow/react';
 import { BbqIcon } from '../../../../components/Icons';
 
 import './BbqNode.scss';
 
-export type BbqNodeProps = NodeProps & {
+export type BbqNodeData = {
   nodeUniqueData: {
     bbqName: string;
     bbqType: string;
@@ -13,8 +14,11 @@ export type BbqNodeProps = NodeProps & {
   };
 };
 
+export type BbqNodeProps = NodeProps;
+
 const BbqNode: React.FC<BbqNodeProps> = ({ data }: BbqNodeProps) => {
-  const { bbqName, bbqType, taste } = data.nodeUniqueData;
+  const nodeData = data as BbqNodeData;
+  const { bbqName, bbqType, taste } = nodeData.nodeUniqueData;
 
   return (
     <div className='bbq-node' role='group' aria-label={`${bbqName} BBQ`}>
@@ -46,8 +50,8 @@ const BbqNode: React.FC<BbqNodeProps> = ({ data }: BbqNodeProps) => {
         <span className='bbq-node__details-value'>{taste}</span>
       </div>
 
-      <Handle type='source' position='bottom' />
-      <Handle type='target' position='top' />
+      <Handle type='source' position={Position.Bottom} />
+      <Handle type='target' position={Position.Top} />
     </div>
   );
 };

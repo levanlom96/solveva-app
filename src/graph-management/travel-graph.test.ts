@@ -4,7 +4,7 @@ import { GraphNode } from './nodes/base-node.ts';
 import { GraphEdge } from './edges/base-edge.ts';
 
 // Helper to create a fresh graph
-function createGraph(forbiddenPaths = []) {
+function createGraph(forbiddenPaths: Array<{from: string; to: string}> = []) {
   const checker = new EdgeChecker(JSON.stringify({ forbiddenPaths }));
   return { graph: new TravelGraph(checker), checker };
 }

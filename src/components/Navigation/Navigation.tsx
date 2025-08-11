@@ -35,7 +35,7 @@ function Navigation() {
               // importJson does sanitize but we are not checking data structure anywhere.
               // Ideally we should use something like https://zod.dev/json-schema - validation.
 
-              if (data?.nodes?.length) {
+              if ((data as any)?.nodes?.length) {
                 dispatch({
                   type: 'SAVE_IMPORTED_TRAVEL_ROUTE',
                   payload: data as {

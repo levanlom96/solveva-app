@@ -76,8 +76,8 @@ const deepSanitize = (value: unknown): unknown => {
   }
   if (value && typeof value === 'object') {
     const sanitizedObj: Record<string, unknown> = {};
-    for (const key of Object.keys(value as unknown as string)) {
-      sanitizedObj[key] = deepSanitize(value[key]);
+    for (const key of Object.keys(value)) {
+      sanitizedObj[key] = deepSanitize((value as any)[key]);
     }
     return sanitizedObj;
   }

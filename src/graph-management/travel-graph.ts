@@ -97,7 +97,7 @@ export class TravelGraph {
   }
 
   // Raw mutation without validation.
-  private _addEdge(edge) {
+  private _addEdge(edge: GraphEdge) {
     this.edges.push(edge);
     this.edgesDictionary[edge.id] = edge;
     edge.source.edges.push(edge);

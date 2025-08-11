@@ -1,9 +1,10 @@
 import './HotelNode.scss';
-import { Handle, NodeProps } from '@xyflow/react';
+import { Handle, Position } from '@xyflow/react';
+import type { NodeProps } from '@xyflow/react';
 import React from 'react';
 import { HotelIcon, StarIcon } from '../../../../components/Icons';
 
-export type HotelNodeProps = NodeProps & {
+export type HotelNodeData = {
   nodeUniqueData: {
     hotelName: string;
     starsAmount: number;
@@ -11,8 +12,11 @@ export type HotelNodeProps = NodeProps & {
   };
 };
 
+export type HotelNodeProps = NodeProps;
+
 const HotelNode: React.FC<HotelNodeProps> = ({ data }: HotelNodeProps) => {
-  const { hotelName, starsAmount, nightsSpent } = data.nodeUniqueData;
+  const nodeData = data as HotelNodeData;
+  const { hotelName, starsAmount, nightsSpent } = nodeData.nodeUniqueData;
 
   return (
     <div className='hotel-node' role='group' aria-label={`${hotelName} hotel`}>
@@ -44,8 +48,8 @@ const HotelNode: React.FC<HotelNodeProps> = ({ data }: HotelNodeProps) => {
         <span className='hotel-node__nights-label'>nights</span>
       </div>
 
-      <Handle type='source' position='bottom' />
-      <Handle type='target' position='top' />
+      <Handle type='source' position={Position.Bottom} />
+      <Handle type='target' position={Position.Top} />
     </div>
   );
 };

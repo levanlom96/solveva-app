@@ -1,13 +1,17 @@
 import React from 'react';
 import type { Country } from '../../../../hooks/useCountries.tsx';
-import { Handle, NodeProps } from '@xyflow/react';
+import { Handle, Position } from '@xyflow/react';
+import type { NodeProps } from '@xyflow/react';
 import './CountryNode.scss';
 
-export type CountryNodeProps = NodeProps & { data: Country };
+export type CountryNodeData = { country: Country };
+
+export type CountryNodeProps = NodeProps;
 
 const CountryNode: React.FC<CountryNodeProps> = ({ data }) => {
-  const name = data.country.name.official;
-  const flag = data.country.flags.svg;
+  const nodeData = data as CountryNodeData;
+  const name = nodeData.country.name.official;
+  const flag = nodeData.country.flags.svg;
 
   return (
     <div className='country-node' role='group' aria-label={`Country: ${name}`}>
@@ -19,8 +23,8 @@ const CountryNode: React.FC<CountryNodeProps> = ({ data }) => {
         {name}
       </h3>
 
-      <Handle type='source' position='bottom' />
-      <Handle type='target' position='top' />
+      <Handle type='source' position={Position.Bottom} />
+      <Handle type='target' position={Position.Top} />
     </div>
   );
 };

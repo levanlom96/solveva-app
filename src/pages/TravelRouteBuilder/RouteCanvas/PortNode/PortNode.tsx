@@ -1,10 +1,11 @@
 import React from 'react';
-import { Handle, NodeProps } from '@xyflow/react';
+import { Handle, Position } from '@xyflow/react';
+import type { NodeProps } from '@xyflow/react';
 import { PortIcon } from '../../../../components/Icons';
 
 import './PortNode.scss';
 
-export type PortNodeProps = NodeProps & {
+export type PortNodeData = {
   nodeUniqueData: {
     portName: string;
     shipType: string;
@@ -12,8 +13,11 @@ export type PortNodeProps = NodeProps & {
   };
 };
 
+export type PortNodeProps = NodeProps;
+
 const PortNode: React.FC<PortNodeProps> = ({ data }: PortNodeProps) => {
-  const { portName, shipType, dinnerAt } = data.nodeUniqueData;
+  const nodeData = data as PortNodeData;
+  const { portName, shipType, dinnerAt } = nodeData.nodeUniqueData;
 
   return (
     <div className='port-node' role='group' aria-label={`${portName} port`}>
@@ -45,8 +49,8 @@ const PortNode: React.FC<PortNodeProps> = ({ data }: PortNodeProps) => {
         <span className='port-node__details-value'>{dinnerAt}</span>
       </div>
 
-      <Handle type='source' position='bottom' />
-      <Handle type='target' position='top' />
+      <Handle type='source' position={Position.Bottom} />
+      <Handle type='target' position={Position.Top} />
     </div>
   );
 };
