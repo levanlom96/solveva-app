@@ -8,6 +8,7 @@ import BeachIcon from './BeachIcon.tsx';
 import HotelIcon from './HotelIcon.tsx';
 import PortIcon from './PortIcon.tsx';
 import TrainIcon from './TrainIcon.tsx';
+import StarIcon from './StarIcon.tsx';
 
 export {
   MagnifyingGlassIcon,
@@ -20,4 +21,5 @@ export {
   HotelIcon,
   PortIcon,
   TrainIcon,
+  StarIcon,
 };

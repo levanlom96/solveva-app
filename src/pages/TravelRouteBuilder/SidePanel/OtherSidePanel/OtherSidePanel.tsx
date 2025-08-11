@@ -23,7 +23,7 @@ function OtherSidePanel({ hidden }: OtherSidePanelProps) {
         label={'Hotel'}
         nodeData={{
           nodeType: 'hotelNode',
-          data: {
+          nodeUniqueData: {
             hotelName: 'Cool Hotel',
             starsAmount: 4,
             nightsSpent: 5,
@@ -35,7 +35,7 @@ function OtherSidePanel({ hidden }: OtherSidePanelProps) {
         label={'Airport'}
         nodeData={{
           nodeType: 'airportNode',
-          data: {
+          nodeUniqueData: {
             airportName: 'Cool Airport',
             flightTime: '4:00 AM',
           },
@@ -46,7 +46,7 @@ function OtherSidePanel({ hidden }: OtherSidePanelProps) {
         label={'Port'}
         nodeData={{
           nodeType: 'portNode',
-          data: {
+          nodeUniqueData: {
             airportName: 'Cool Port',
             shipType: 'Cruise',
             dinnerAt: '9:00 PM',
@@ -58,9 +58,9 @@ function OtherSidePanel({ hidden }: OtherSidePanelProps) {
         label={'Barbeque'}
         nodeData={{
           nodeType: 'bbqNode',
-          data: {
+          nodeUniqueData: {
             airportName: 'Cool Barbeque Place',
-            bbqType: 'Vegetables and Marshmallows',
+            bbqType: 'Marshmallows',
             taste: 'Very good',
           },
         }}
@@ -70,7 +70,7 @@ function OtherSidePanel({ hidden }: OtherSidePanelProps) {
         label={'Beach'}
         nodeData={{
           nodeType: 'beachNode',
-          data: {
+          nodeUniqueData: {
             beachName: 'Cool Beach',
             beachType: 'Surfing',
             waterDepth: 'Very deep',
@@ -82,7 +82,7 @@ function OtherSidePanel({ hidden }: OtherSidePanelProps) {
         label={'Train station'}
         nodeData={{
           nodeType: 'trainNode',
-          data: {
+          nodeUniqueData: {
             stationName: 'Cool Train Station',
             trainType: 'Steam Locomotive',
             vibeCheck: 'Very Cool Train',

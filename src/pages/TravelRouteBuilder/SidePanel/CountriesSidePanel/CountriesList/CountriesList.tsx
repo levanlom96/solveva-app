@@ -11,11 +11,9 @@ function CountriesList({ countries }: CountriesListProps) {
     country: Country
   ) => {
     const payload = {
-      data: {
-        id: country.cca2,
-        nodeType: 'countryNode',
-        country: country,
-      },
+      id: country.cca2,
+      nodeType: 'countryNode',
+      country: country,
     };
 
     e.dataTransfer.setData('application/json', JSON.stringify(payload));

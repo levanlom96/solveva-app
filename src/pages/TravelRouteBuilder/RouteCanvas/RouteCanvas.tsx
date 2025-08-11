@@ -19,13 +19,25 @@ import { GraphNode } from '../../../graph-management/nodes/base-node.ts';
 import { GraphEdge } from '../../../graph-management/edges/base-edge.ts';
 
 import CountryNode from './CountryNode/CountryNode.tsx';
+import HotelNode from './HotelNode/HotelNode.tsx';
 
 import './RouteCanvas.scss';
 import { useAppState } from '../../../hooks/useAppState.tsx';
 import type { NodeData } from '../SidePanel/OtherSidePanel/OtherChoice/OtherChoice.tsx';
+import AirportNode from './AirportNode/AirportNode.tsx';
+import PortNode from './PortNode/PortNode.tsx';
+import BbqNode from './BbqNode/BbqNode.tsx';
+import BeachNode from './BeachNode/BeachNode.tsx';
+import TrainStationNode from './TrainStation/TrainStationNode.tsx';
 
 const nodeTypes: NodeTypes = {
   countryNode: CountryNode,
+  hotelNode: HotelNode,
+  airportNode: AirportNode,
+  portNode: PortNode,
+  bbqNode: BbqNode,
+  beachNode: BeachNode,
+  trainNode: TrainStationNode,
 };
 
 const forbiddenPaths =
@@ -115,7 +127,8 @@ export default function RouteCanvas() {
     e.preventDefault();
     const data = e.dataTransfer.getData('application/json');
     const parsedData: NodeData = JSON.parse(data);
-    const id = parsedData.data.id ? parsedData.data.id : crypto.randomUUID();
+
+    const id = parsedData.id ? parsedData.id : crypto.randomUUID();
 
     try {
       const node = new GraphNode(id);
@@ -127,15 +140,13 @@ export default function RouteCanvas() {
         y: e.clientY,
       });
 
-      console.log('parsedData: ', parsedData);
-
       setNodes((prevState) => [
         ...prevState,
         {
           id: id,
           position,
-          data: parsedData.data,
-          type: parsedData.data.nodeType,
+          data: { ...parsedData },
+          type: parsedData.nodeType,
         },
       ]);
     } catch (e) {

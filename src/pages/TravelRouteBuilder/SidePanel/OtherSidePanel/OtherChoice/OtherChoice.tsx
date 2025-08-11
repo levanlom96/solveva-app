@@ -5,7 +5,7 @@ import type { NodeTypeKey } from '../../../RouteCanvas/RouteCanvas.tsx';
 export type NodeData = {
   id?: string;
   nodeType: NodeTypeKey;
-  data: unknown;
+  nodeUniqueData: unknown;
 };
 
 export interface OtherChoiceProps {
@@ -22,8 +22,10 @@ function OtherChoice({ icon, label, nodeData }: OtherChoiceProps) {
     data: NodeData
   ) => {
     const payload = {
-      data,
+      ...data,
     };
+
+    console.log(payload);
 
     e.dataTransfer.setData('application/json', JSON.stringify(payload));
     e.dataTransfer.effectAllowed = 'copy';
