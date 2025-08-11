@@ -30,11 +30,20 @@ const nodeTypes: NodeTypes = {
 const forbiddenPaths =
   '{"forbiddenPaths":[{"from":"ES","to":"GE"},{"from":"GE","to":"HR"}]}';
 
+export type NodeTypeKey =
+  | 'countryNode'
+  | 'hotelNode'
+  | 'airportNode'
+  | 'portNode'
+  | 'bbqNode'
+  | 'beachNode'
+  | 'trainNode';
+
 export interface ReactFlowNode {
   id: string;
   position: { x: 521; y: 222 };
   data: { country: Country };
-  type: 'countryNode';
+  type: NodeTypeKey;
 }
 
 export interface ReactFlowEdge {
