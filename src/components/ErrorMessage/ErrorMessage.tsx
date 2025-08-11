@@ -1,4 +1,5 @@
 import { ExclamationMarkIcon } from '../Icons';
+import classNames from 'classnames';
 
 import './ErrorMessage.scss';
 
@@ -15,7 +16,9 @@ export default function ErrorMessage({
 }: ErrorMessageProps) {
   return (
     <div
-      className={`error-message ${style === 'warning' ? 'error-message--warning' : ''}`}
+      className={classNames('error-message', {
+        'error-message--warning': style === 'warning',
+      })}
     >
       <ExclamationMarkIcon className='error-message__icon' />
       <div className='error-message__text'>

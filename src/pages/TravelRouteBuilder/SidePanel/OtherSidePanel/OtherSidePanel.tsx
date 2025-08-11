@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import './OtherSidePanel.scss';
 import OtherChoice from './OtherChoice/OtherChoice.tsx';
 import {
@@ -16,7 +17,9 @@ export interface OtherSidePanelProps {
 function OtherSidePanel({ hidden }: OtherSidePanelProps) {
   return (
     <div
-      className={`other-side-panel ${hidden ? 'other-side-panel--hidden' : ''}`}
+      className={classNames('other-side-panel', {
+        'other-side-panel--hidden': hidden,
+      })}
     >
       <OtherChoice
         icon={HotelIcon}

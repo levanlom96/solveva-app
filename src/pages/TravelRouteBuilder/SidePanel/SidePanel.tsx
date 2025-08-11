@@ -1,6 +1,7 @@
 import './SidePanel.scss';
 import CountriesSidePanel from './CountriesSidePanel/CountriesSidePanel.tsx';
 import { useState } from 'react';
+import classNames from 'classnames';
 import { useCountries } from '../../../hooks/useCountries.tsx';
 import OtherSidePanel from './OtherSidePanel/OtherSidePanel.tsx';
 
@@ -12,13 +13,17 @@ function SidePanel() {
   return (
     <div className='side-panel'>
       <button
-        className={`side-panel__countries-button ${!otherPanelOpen ? 'active' : ''}`}
+        className={classNames('side-panel__countries-button', {
+          active: !otherPanelOpen,
+        })}
         onClick={() => setOtherPanelOpen(false)}
       >
         Countries
       </button>
       <button
-        className={`side-panel__other-button ${otherPanelOpen ? 'active' : ''}`}
+        className={classNames('side-panel__other-button', {
+          active: otherPanelOpen,
+        })}
         onClick={() => setOtherPanelOpen(true)}
       >
         Other

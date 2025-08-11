@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import classNames from 'classnames';
 
 import { GlobalIcon, MagnifyingGlassIcon } from '../../../../components/Icons';
 import CountriesLoading from './CountriesLoading/CountriesLoading.tsx';
@@ -43,7 +44,9 @@ const CountriesSidePanel: React.FC<CountriesSidePanelProps> = ({
 
   return (
     <div
-      className={`countries-side-panel ${hidden ? 'countries-side-panel--hidden' : ''}`}
+      className={classNames('countries-side-panel', {
+        'countries-side-panel--hidden': hidden,
+      })}
     >
       <div className='countries-side-panel__search-container'>
         <div className='countries-side-panel__headline-container'>

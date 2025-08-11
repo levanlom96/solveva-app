@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+import classNames from 'classnames';
 
 import { ExportJsonIcon } from '../Icons';
 import { useAppState } from '../../hooks/useAppState.tsx';
@@ -22,7 +23,9 @@ function Navigation() {
     <nav className='navigation'>
       <SolvevaLogoIcon />
       <div
-        className={`navigation__buttons ${hideButtons ? 'navigation__buttons--hidden' : ''}`}
+        className={classNames('navigation__buttons', {
+          'navigation__buttons--hidden': hideButtons,
+        })}
       >
         <button
           className='navigation__button'
