@@ -1,6 +1,6 @@
 import './Footer.scss';
 
-function Footer() {
+const Footer = () => {
   return <footer className='footer'>Built with ❤️ and a bit of ☕</footer>;
 }
 

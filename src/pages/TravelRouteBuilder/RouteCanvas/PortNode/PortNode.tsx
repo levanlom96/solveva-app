@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Handle, Position } from '@xyflow/react';
 import type { NodeProps } from '@xyflow/react';
 import { PortIcon } from '../../../../components/Icons';
@@ -15,7 +15,7 @@ export type PortNodeData = {
 
 export type PortNodeProps = NodeProps;
 
-const PortNode: React.FC<PortNodeProps> = ({ data }: PortNodeProps) => {
+const PortNode = ({ data }: PortNodeProps) => {
   const nodeData = data as PortNodeData;
   const { portName, shipType, dinnerAt } = nodeData.nodeUniqueData;
 

@@ -1,6 +1,6 @@
-import React from 'react';
 
-const BeachIcon: React.FC<{ className?: string }> = ({
+
+const BeachIcon = ({
   className,
 }: {
   className?: string;

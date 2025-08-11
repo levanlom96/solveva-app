@@ -1,6 +1,6 @@
-import React from 'react';
 
-const ExportJsonIcon: React.FC<{ className?: string }> = ({
+
+const ExportJsonIcon = ({
   className,
 }: {
   className?: string;

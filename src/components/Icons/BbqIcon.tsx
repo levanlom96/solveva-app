@@ -1,6 +1,6 @@
-import React from 'react';
 
-const BbqIcon: React.FC<{ className?: string }> = ({
+
+const BbqIcon = ({
   className,
 }: {
   className?: string;

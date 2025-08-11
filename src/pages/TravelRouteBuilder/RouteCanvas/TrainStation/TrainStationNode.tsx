@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 import { Handle, Position } from '@xyflow/react';
 import type { NodeProps } from '@xyflow/react';
@@ -16,7 +16,7 @@ export type TrainStationNodeData = {
 
 export type TrainStationNodeProps = NodeProps;
 
-const TrainStationNode: React.FC<TrainStationNodeProps> = ({
+const TrainStationNode = ({
   data,
 }: TrainStationNodeProps) => {
   const nodeData = data as TrainStationNodeData;

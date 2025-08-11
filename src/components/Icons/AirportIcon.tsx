@@ -1,6 +1,6 @@
-import React from 'react';
 
-const AirportIcon: React.FC<{ className?: string }> = ({
+
+const AirportIcon = ({
   className,
 }: {
   className?: string;

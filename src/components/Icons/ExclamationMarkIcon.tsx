@@ -1,6 +1,6 @@
-import React from 'react';
 
-const ExclamationMarkIcon: React.FC<{ className?: string }> = ({
+
+const ExclamationMarkIcon = ({
   className,
 }: {
   className?: string;

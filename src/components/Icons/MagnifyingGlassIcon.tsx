@@ -1,6 +1,6 @@
-import React from 'react';
 
-const MagnifyingGlassIcon: React.FC<{ className?: string }> = ({
+
+const MagnifyingGlassIcon = ({
   className,
 }: {
   className?: string;

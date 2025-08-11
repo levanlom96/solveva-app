@@ -1,6 +1,6 @@
-import React from 'react';
 
-const TrainIcon: React.FC<{ className?: string }> = ({
+
+const TrainIcon = ({
   className,
 }: {
   className?: string;

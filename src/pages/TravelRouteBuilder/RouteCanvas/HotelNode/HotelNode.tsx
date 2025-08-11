@@ -1,7 +1,7 @@
 import './HotelNode.scss';
 import { Handle, Position } from '@xyflow/react';
 import type { NodeProps } from '@xyflow/react';
-import React from 'react';
+
 import { HotelIcon, StarIcon } from '../../../../components/Icons';
 
 export type HotelNodeData = {
@@ -14,7 +14,7 @@ export type HotelNodeData = {
 
 export type HotelNodeProps = NodeProps;
 
-const HotelNode: React.FC<HotelNodeProps> = ({ data }: HotelNodeProps) => {
+const HotelNode = ({ data }: HotelNodeProps) => {
   const nodeData = data as HotelNodeData;
   const { hotelName, starsAmount, nightsSpent } = nodeData.nodeUniqueData;
 

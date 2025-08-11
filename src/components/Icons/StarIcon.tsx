@@ -1,6 +1,6 @@
-import React from 'react';
 
-const HotelIcon: React.FC<{ className?: string }> = ({ className }) => (
+
+const StarIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox='0 0 24 24'>
     <g>
       <path
@@ -11,4 +11,4 @@ const HotelIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-export default HotelIcon;
+export default StarIcon;

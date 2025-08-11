@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 import { Handle, Position } from '@xyflow/react';
 import type { NodeProps } from '@xyflow/react';
@@ -16,7 +16,7 @@ export type BeachNodeData = {
 
 export type BeachNodeProps = NodeProps;
 
-const BeachNode: React.FC<BeachNodeProps> = ({ data }: BeachNodeProps) => {
+const BeachNode = ({ data }: BeachNodeProps) => {
   const nodeData = data as BeachNodeData;
   const { beachName, beachType, waterDepth } = nodeData.nodeUniqueData;
 

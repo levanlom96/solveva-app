@@ -1,7 +1,7 @@
 import './NotFound.scss';
 import { Link } from 'react-router-dom';
 
-function NotFound() {
+const NotFound = () => {
   return (
     <div className='not-found'>
       <Link className='bouncy-button' to='/builder'>

@@ -1,6 +1,6 @@
-import React from 'react';
 
-const PortIcon: React.FC<{ className?: string }> = ({
+
+const PortIcon = ({
   className,
 }: {
   className?: string;

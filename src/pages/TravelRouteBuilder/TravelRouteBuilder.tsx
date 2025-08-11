@@ -6,7 +6,7 @@ import RouteCanvas from './RouteCanvas/RouteCanvas.tsx';
 
 import './TravelRouteBuilder.scss';
 
-function TravelRouteBuilder() {
+const TravelRouteBuilder = () => {
   return (
     <div className='route-builder'>
       <SidePanel />

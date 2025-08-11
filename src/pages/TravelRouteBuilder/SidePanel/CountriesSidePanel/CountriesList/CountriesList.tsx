@@ -5,7 +5,7 @@ export interface CountriesListProps {
   countries: Country[];
 }
 
-function CountriesList({ countries }: CountriesListProps) {
+const CountriesList = ({ countries }: CountriesListProps) => {
   const handleDragStart = (
     e: React.DragEvent<HTMLDivElement>,
     country: Country

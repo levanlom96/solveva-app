@@ -1,4 +1,4 @@
-import React from 'react';
+
 import type { Country } from '../../../../hooks/useCountries.tsx';
 import { Handle, Position } from '@xyflow/react';
 import type { NodeProps } from '@xyflow/react';
@@ -8,7 +8,7 @@ export type CountryNodeData = { country: Country };
 
 export type CountryNodeProps = NodeProps;
 
-const CountryNode: React.FC<CountryNodeProps> = ({ data }) => {
+const CountryNode = ({ data }: CountryNodeProps) => {
   const nodeData = data as CountryNodeData;
   const name = nodeData.country.name.official;
   const flag = nodeData.country.flags.svg;

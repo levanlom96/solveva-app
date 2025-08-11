@@ -1,6 +1,6 @@
-import React from 'react';
 
-const GlobalIcon: React.FC<{ className?: string }> = ({
+
+const GlobalIcon = ({
   className,
 }: {
   className?: string;

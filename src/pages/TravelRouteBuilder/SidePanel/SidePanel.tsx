@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { useCountries } from '../../../hooks/useCountries.tsx';
 import OtherSidePanel from './OtherSidePanel/OtherSidePanel.tsx';
 
-function SidePanel() {
+const SidePanel = () => {
   const { countries, loading, error } = useCountries();
 
   const [otherPanelOpen, setOtherPanelOpen] = useState(true);

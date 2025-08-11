@@ -1,6 +1,6 @@
 import './CountriesLoading.scss';
 
-function CountriesLoading() {
+const CountriesLoading = () => {
   return (
     <div className='countries-loading'>
       <svg

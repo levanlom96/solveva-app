@@ -14,7 +14,7 @@ export interface OtherChoiceProps {
   nodeData: NodeData;
 }
 
-function OtherChoice({ icon, label, nodeData }: OtherChoiceProps) {
+const OtherChoice = ({ icon, label, nodeData }: OtherChoiceProps) => {
   const Icon: React.FC<{ className: string }> = icon;
 
   const handleDragStart = (

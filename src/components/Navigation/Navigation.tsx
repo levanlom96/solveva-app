@@ -13,7 +13,7 @@ import type {
   ReactFlowNode,
 } from '../../pages/TravelRouteBuilder/RouteCanvas/RouteCanvas.tsx';
 
-function Navigation() {
+const Navigation = () => {
   const { state, dispatch } = useAppState();
 
   const location = useLocation();

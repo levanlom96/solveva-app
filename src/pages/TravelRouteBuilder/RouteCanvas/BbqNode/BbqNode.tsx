@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 import { Handle, Position } from '@xyflow/react';
 import type { NodeProps } from '@xyflow/react';
@@ -16,7 +16,7 @@ export type BbqNodeData = {
 
 export type BbqNodeProps = NodeProps;
 
-const BbqNode: React.FC<BbqNodeProps> = ({ data }: BbqNodeProps) => {
+const BbqNode = ({ data }: BbqNodeProps) => {
   const nodeData = data as BbqNodeData;
   const { bbqName, bbqType, taste } = nodeData.nodeUniqueData;
 

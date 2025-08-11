@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import classNames from 'classnames';
 
 import { GlobalIcon, MagnifyingGlassIcon } from '../../../../components/Icons';
@@ -18,7 +18,7 @@ export interface CountriesSidePanelProps {
   hidden: boolean;
 }
 
-const CountriesSidePanel: React.FC<CountriesSidePanelProps> = ({
+const CountriesSidePanel = ({
   countries,
   loading,
   error,

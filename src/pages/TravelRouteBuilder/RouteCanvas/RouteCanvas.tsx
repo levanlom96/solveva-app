@@ -63,7 +63,7 @@ export type ReactFlowNode = Node<never, NodeTypeKey>;
 
 export type ReactFlowEdge = Edge;
 
-export default function RouteCanvas() {
+const RouteCanvas = () => {
   const { state, dispatch } = useAppState();
 
   const [travelGraph, setTravelGraph] = useState(
@@ -223,4 +223,6 @@ export default function RouteCanvas() {
       </ReactFlow>
     </div>
   );
-}
+};
+
+export default RouteCanvas;

@@ -9,11 +9,11 @@ interface ErrorMessageProps {
   message: string;
 }
 
-export default function ErrorMessage({
+const ErrorMessage = ({
   title = 'Error',
   style = 'error',
   message,
-}: ErrorMessageProps) {
+}: ErrorMessageProps) => {
   return (
     <div
       className={classNames('error-message', {
@@ -27,4 +27,6 @@ export default function ErrorMessage({
       </div>
     </div>
   );
-}
+};
+
+export default ErrorMessage;

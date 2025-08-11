@@ -14,7 +14,7 @@ export interface OtherSidePanelProps {
   hidden: boolean;
 }
 
-function OtherSidePanel({ hidden }: OtherSidePanelProps) {
+const OtherSidePanel = ({ hidden }: OtherSidePanelProps) => {
   return (
     <div
       className={classNames('other-side-panel', {

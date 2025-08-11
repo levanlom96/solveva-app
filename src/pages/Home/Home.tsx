@@ -2,7 +2,7 @@ import './Home.scss';
 import Avatar from '../../assets/levan.jpg';
 import { Link } from 'react-router-dom';
 
-function Home() {
+const Home = () => {
   return (
     <div className='home'>
       <div className='home__center-container'>

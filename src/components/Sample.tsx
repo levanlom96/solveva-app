@@ -1,6 +1,6 @@
 import './Sample.scss';
 
-function Sample() {
+const Sample = () => {
   return <div></div>;
 }
 
