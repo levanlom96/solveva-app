@@ -30,6 +30,7 @@ import HotelNode from './HotelNode/HotelNode.tsx';
 
 import './RouteCanvas.scss';
 import { useAppState } from '../../../hooks/useAppState.tsx';
+import { validateNodeData } from '../../../utils/validation.utils.ts';
 import type { NodeData } from '../SidePanel/OtherSidePanel/OtherChoice/OtherChoice.tsx';
 import AirportNode from './AirportNode/AirportNode.tsx';
 import PortNode from './PortNode/PortNode.tsx';
@@ -128,10 +129,12 @@ const RouteCanvas = () => {
 
     let parsedData: NodeData;
     try {
-      parsedData = JSON.parse(data);
+      const rawParsedData = JSON.parse(data);
+      // Validate the parsed data structure
+      parsedData = validateNodeData(rawParsedData);
     } catch (error) {
-      console.error('Failed to parse dropped data:', error);
-      toast.error('Invalid data format');
+      console.error('Failed to parse or validate dropped data:', error);
+      toast.error(`Invalid data format: ${(error as Error).message}`);
       return;
     }
 
@@ -192,8 +195,8 @@ const RouteCanvas = () => {
           }
         });
 
-        setNodes(state.importedTravelRoute.nodes);
-        setEdges(state.importedTravelRoute.edges);
+        setNodes(state.importedTravelRoute.nodes as ReactFlowNode[]);
+        setEdges(state.importedTravelRoute.edges as ReactFlowEdge[]);
         setTravelGraph(newTravelGraph);
       } catch (e) {
         toast.error((e as Error).message, { position: 'bottom-center' });

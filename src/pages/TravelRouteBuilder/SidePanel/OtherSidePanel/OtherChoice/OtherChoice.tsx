@@ -1,12 +1,8 @@
 import './OtherChoice.scss';
 import React from 'react';
-import type { NodeTypeKey } from '../../../RouteCanvas/RouteCanvas.tsx';
+import type { ValidatedNodeData } from '../../../../../utils/validation.utils.ts';
 
-export type NodeData = {
-  id?: string;
-  nodeType: NodeTypeKey;
-  nodeUniqueData: unknown;
-};
+export type NodeData = ValidatedNodeData;
 
 export interface OtherChoiceProps {
   icon: React.FC;

@@ -5,13 +5,10 @@ import { ExportJsonIcon } from '../Icons';
 import { useAppState } from '../../hooks/useAppState.tsx';
 import { exportJson } from '../../utils/export.utils.ts';
 import { importJson } from '../../utils/import.utils.ts';
+import { validateTravelRoute } from '../../utils/validation.utils.ts';
 import SolvevaLogoIcon from '../Icons/SolvevaLogoIcon.tsx';
 
 import './Navigation.scss';
-import type {
-  ReactFlowEdge,
-  ReactFlowNode,
-} from '../../pages/TravelRouteBuilder/RouteCanvas/RouteCanvas.tsx';
 
 const Navigation = () => {
   const { state, dispatch } = useAppState();
@@ -34,26 +31,21 @@ const Navigation = () => {
             try {
               const data = await importJson();
 
-              // TODO: We need to make this smarter.
-              // importJson does sanitize but we are not checking data structure anywhere.
-              // Ideally we should use something like https://zod.dev/json-schema - validation.
+              // Validate the imported data structure using Zod schema
+              const validatedData = validateTravelRoute(data);
 
-              const typedData = data as Record<string, unknown>;
-              if (
-                typedData?.nodes &&
-                Array.isArray(typedData.nodes) &&
-                typedData.nodes.length > 0
-              ) {
+              if (validatedData.nodes.length > 0) {
                 dispatch({
                   type: 'SAVE_IMPORTED_TRAVEL_ROUTE',
-                  payload: data as {
-                    nodes: ReactFlowNode[];
-                    edges: ReactFlowEdge[];
-                  },
+                  payload: validatedData,
                 });
+              } else {
+                alert(
+                  'The imported file contains no nodes. Please import a valid travel route.'
+                );
               }
             } catch (err) {
-              console.error(err);
+              console.error('Import failed:', err);
               alert((err as Error).message);
             }
           }}
