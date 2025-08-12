@@ -1,5 +1,19 @@
 import { z } from 'zod';
 
+// Schema for Country object (matches the Country type from useCountries.tsx)
+const countrySchema = z.object({
+  name: z.object({
+    common: z.string(),
+    official: z.string(),
+  }),
+  cca2: z.string(),
+  flags: z.object({
+    png: z.string(),
+    svg: z.string(),
+    alt: z.string().optional(),
+  }),
+});
+
 // Define valid node types
 const nodeTypeSchema = z.enum([
   'countryNode',
@@ -15,7 +29,8 @@ const nodeTypeSchema = z.enum([
 export const NodeDataSchema = z.object({
   id: z.string().optional(),
   nodeType: nodeTypeSchema,
-  nodeUniqueData: z.record(z.string(), z.unknown()),
+  nodeUniqueData: z.record(z.string(), z.unknown()).optional(),
+  country: countrySchema.optional(),
 });
 
 // Schema for React Flow node structure

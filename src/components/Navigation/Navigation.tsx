@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import classNames from 'classnames';
+import { toast } from 'react-toastify';
 
 import { ExportJsonIcon } from '../Icons';
 import { useAppState } from '../../hooks/useAppState.tsx';
@@ -40,13 +41,16 @@ const Navigation = () => {
                   payload: validatedData,
                 });
               } else {
-                alert(
-                  'The imported file contains no nodes. Please import a valid travel route.'
+                toast.warning(
+                  'The imported file contains no nodes. Please import a valid travel route.',
+                  { position: 'bottom-center' }
                 );
               }
             } catch (err) {
               console.error('Import failed:', err);
-              alert((err as Error).message);
+              toast.error((err as Error).message, {
+                position: 'bottom-center',
+              });
             }
           }}
         >
