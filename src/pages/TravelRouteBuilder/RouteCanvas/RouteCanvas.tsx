@@ -125,7 +125,15 @@ const RouteCanvas = () => {
   const onDrop = (e: React.DragEvent) => {
     e.preventDefault();
     const data = e.dataTransfer.getData('application/json');
-    const parsedData: NodeData = JSON.parse(data);
+
+    let parsedData: NodeData;
+    try {
+      parsedData = JSON.parse(data);
+    } catch (error) {
+      console.error('Failed to parse dropped data:', error);
+      toast.error('Invalid data format');
+      return;
+    }
 
     const id = parsedData.id ? parsedData.id : crypto.randomUUID();
 

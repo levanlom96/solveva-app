@@ -23,28 +23,31 @@ export const importJson = async (): Promise<unknown> =>
 
       const reader = new FileReader();
       reader.onload = () => {
-        try {
-          const text = reader.result as string;
+        const text = reader.result as string;
 
-          if (!text.trim()) {
-            reject(new Error('File is empty'));
-            return;
-          }
-
-          // Extra guard: prevent importing if file starts with HTML tags
-          if (/^\s*<\s*!?html/i.test(text)) {
-            reject(new Error('Not a valid JSON file'));
-            return;
-          }
-
-          const parsed = JSON.parse(text);
-
-          // Sanitize all string values
-          const sanitized = deepSanitize(parsed);
-          resolve(sanitized);
-        } catch {
-          reject(new Error('Invalid JSON format'));
+        if (!text.trim()) {
+          reject(new Error('File is empty'));
+          return;
         }
+
+        // Extra guard: prevent importing if file starts with HTML tags
+        if (/^\s*<\s*!?html/i.test(text)) {
+          reject(new Error('Not a valid JSON file'));
+          return;
+        }
+
+        let parsed;
+        try {
+          parsed = JSON.parse(text);
+        } catch (error) {
+          console.error('Failed to parse imported JSON:', error);
+          reject(new Error('Invalid JSON format in imported file'));
+          return;
+        }
+
+        // Sanitize all string values
+        const sanitized = deepSanitize(parsed);
+        resolve(sanitized);
       };
 
       reader.onerror = () => reject(new Error('Failed to read file'));
